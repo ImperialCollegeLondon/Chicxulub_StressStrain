@@ -1,0 +1,41 @@
+#ISMAT ! iSale material input file identification string
+-----------------------------------------------------------------------------
+MATNAME    Material name          : granite      : dunite_      : calcite
+EOSNAME    EOS name               : granit2      : dunite_      : calcite
+EOSTYPE    EOS type               : aneos        : aneos        : aneos
+STRMOD     Strength model         : ROCK         : ROCK         : ROCK
+DAMMOD     Damage model           : IVANOV       : IVANOV       : IVANOV
+DILMOD     Dilatancy model        : ALPHAPT      : ALPHAPT      : ALPHAPT
+ACFL       Acoustic fluidisation  : BLOCK        : BLOCK        : BLOCK
+PORMOD     Porosity model         : NONE         : NONE         : NONE
+THSOFT     Thermal softening      : OHNAKA       : OHNAKA       : OHNAKA
+LDWEAK     Low density weakening  : POLY         : POLY         : POLY
+----------------------------------------------------------------------------
+POIS       pois                   : 3.0000D-01   : 2.5000D-01   : 3.0000D-01
+----------------------------------------------------------------------------
+TMELT0     tmelt0                 : 1.6730D+03   : 1.3730D+03   : 1.5000D+03
+TFRAC      tfrac                  : 1.2000D+00   : 1.2000D+00   : 1.2000D+00
+ASIMON     a_simon                : 6.0000D+09   : 1.5200D+09   : 6.0000D+09
+CSIMON     c_simon                : 3.0000D+00   : 4.0500D+00   : 3.0000D+00
+----------------------------------------------------------------------------
+YDAM0      ydam0 (ycoh)           : 1.0000D+04   : 1.0000D+04   : 1.0000D+04
+FRICDAM    fricdam                : 6.0000D-01   : 6.0000D-01   : 4.0000D-01
+YLIMDAM    ylimdam                : 2.5000D+09   : 3.5000D+09   : 5.0000D+08
+----------------------------------------------------------------------------
+YINT0      yint0                  : 1.0000D+07   : 1.0000D+07   : 5.0000D+06
+FRICINT    fricint                : 2.0000D+00   : 1.2000D+00   : 1.0000D+00
+YLIMINT    ylimint                : 2.5000D+09   : 3.5000D+09   : 5.0000D+08
+----------------------------------------------------------------------------
+IVANOV_A   Damage parameter       : 1.0000D-04   : 1.0000D-04   : 1.0000D-04
+IVANOV_B   Damage parameter       : 1.0000D-11   : 1.0000D-11   : 1.0000D-11
+IVANOV_C   Damage parameter       : 3.0000D+08   : 3.0000D+08   : 3.0000D+08
+----------------------------------------------------------------------------
+GAMETA     gam_eta                : 1.7500D-02   : 1.7500D-02   : 1.7500D-02
+GAMBETA    gam_beta               : 2.0000D+02   : 2.0000D+02   : 2.0000D+02
+----------------------------------------------------------------------------
+DILATCOEF  Dil coeff              : 4.50000D-02  : 4.50000D-02  : 4.50000D-02
+DILATPLIM  Critical pressure      : 2.00000D+08  : 2.00000D+08  : 2.00000D+08
+DILATFRIC  Friction coeff         : 4.00000D-01  : 4.00000D-01  : 4.00000D-01
+ALPHACRIT  Critical dil state     : 1.20000D+00  : 1.20000D+00  : 1.20000D+00
+----------------------------------------------------------------------------
+<<END ! used to identify the end of this file
