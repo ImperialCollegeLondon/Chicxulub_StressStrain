@@ -16,7 +16,7 @@ from matplotlib import ticker
 
 ####################################################################################################################################### USER
 # Name the model directory
-namemodel = 'Chicx_t2s_VEL'
+namemodel = 'MODEL'
 
 # Define datafilename
 datafilename = namemodel + '/jdata.dat'
@@ -203,7 +203,7 @@ T_res = (step_final.time - step_initial.time)/model.nsteps
 
 ####################################################################################################################################### USER
 # Create output directory
-dirname = 'Stress_and_Strain_{}'.format(TR)
+dirname = 'StressStrain_{}'.format(TR)
 psp.mkdir_p(namemodel + '/' + dirname)
 ####################################################################################################################################### USER
 
