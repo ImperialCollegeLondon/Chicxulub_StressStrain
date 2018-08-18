@@ -463,6 +463,16 @@ for i in np.arange(0,model.nsteps,1):
     T_ylocations.append(T_yloc)
     T_locations.append(zip(T_xloc, T_yloc))
 
+# ----------------------------------------------------------------------------------------------- NOTE ----------------------------------------------------------------------------------------------- #
+# Within the contribution, the Lagrangian pseudo-cell is described as possessing 8 nodes, and thus the matrix tM is an 3*8 matrix, here, tM has been simplified such that it only contains:
+#
+#      / r_a    r_b     r_c     r_d \
+# tM = |                            |  = T_locations
+#      \ z_a    z_b     z_c     z_d /
+#
+# This simplification can be used by ignoring the theta coordinates. Hoop strains are more simply calculated based on translations in the r-direction (x) and, as there cannot be any shear strains in the hoop direction, the other elements are not necessary. See L560. This simplification makes the following section considerably simpler.
+# ----------------------------------------------------------------------------------------------- NOTE ----------------------------------------------------------------------------------------------- #
+
 # -------------------------------- #
 # SAVE LOCATIONS AT KEY TIME STEPS #
 # -------------------------------- #
