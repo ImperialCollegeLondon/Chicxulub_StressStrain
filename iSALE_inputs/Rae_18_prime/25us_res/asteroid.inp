@@ -39,8 +39,8 @@ LAYDAM                layer damage                  : 0.0D0       : 0.0D0       
 ------------------- Time Parameters ------------------------------------
 DT                    initial time increment        : 5.0D-3
 DTMAX                 maximum timestep              : 5.D-2
-TEND                  end time                      : 3.001D2
-DTSAVE                save interval                 : 1.D0
+TEND                  end time                      : 6.001D0
+DTSAVE                save interval                 : 2.5D-1
 ------------------- Ac. Fluid. Parameters (see also material.inp) ------
 TOFF                  toff                          : 16.D0
 CVIB                  c_vib                         : 0.1D0

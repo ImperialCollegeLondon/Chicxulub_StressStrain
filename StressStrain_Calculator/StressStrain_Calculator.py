@@ -524,6 +524,8 @@ I1 = []
 I2 = []
 I3 = []
 
+J2_e = []
+
 R_I1 = []
 R_I2 = []
 R_I3 = []
@@ -656,6 +658,9 @@ for i in np.arange(1,model.nsteps,1):
         rt_Inv2 = -np.sqrt(-Inv2)
 
     Inv3 = np.linalg.det(EPS)
+
+    JInv2 = -((np.trace(DEVstrain_Tensor))**2 - np.trace(DEVstrain_Tensor**2))/2
+    rt_JInv2 = np.sqrt(JInv2)
     
     R_Inv1 = np.trace(RoDT)
     R_Inv2 = (np.trace(RoDT**2) - (np.trace(RoDT))**2)/2
@@ -670,6 +675,8 @@ for i in np.arange(1,model.nsteps,1):
     I1.append(Inv1)
     I2.append(rt_Inv2)
     I3.append(Inv3)
+
+    J2_e.append(rt_JInv2)
     
     R_I1.append(R_Inv1)
     R_I2.append(R_Inv2)
@@ -720,9 +727,9 @@ for i in np.arange(1,model.nsteps,1):
     Wk.append(W_full_kin)
     Wk_strain.append(W_strain_kin)
 
-DATA = zip(I, t_av, x_loc, y_loc, tl_xlocations, tl_ylocations, tr_xlocations, tr_ylocations, br_xlocations, br_ylocations, bl_xlocations, bl_ylocations, rot, rot_cum, gam_xy, gam_xy_cum, I1, I2, I3, R_I1, R_I2, R_I3, e_val1, e_vec1x, e_vec1y, e_vec1z, e_val2, e_vec2x, e_vec2y, e_vec2z, e_val3, e_vec3x, e_vec3y, e_vec3z, Wk, Wk_strain, n_oct_unit_shear, lode, Distension, STRESS_I1, STRESS_I2, STRESS_I3, STRESS_e_val1, STRESS_e_vec1x, STRESS_e_vec1y, STRESS_e_vec1z, STRESS_e_val2, STRESS_e_vec2x, STRESS_e_vec2y, STRESS_e_vec2z, STRESS_e_val3, STRESS_e_vec3x, STRESS_e_vec3y, STRESS_e_vec3z, pre, temp, dist)
+DATA = zip(I, t_av, x_loc, y_loc, tl_xlocations, tl_ylocations, tr_xlocations, tr_ylocations, br_xlocations, br_ylocations, bl_xlocations, bl_ylocations, rot, rot_cum, gam_xy, gam_xy_cum, I1, I2, I3, J2_e, R_I1, R_I2, R_I3, e_val1, e_vec1x, e_vec1y, e_vec1z, e_val2, e_vec2x, e_vec2y, e_vec2z, e_val3, e_vec3x, e_vec3y, e_vec3z, Wk, Wk_strain, n_oct_unit_shear, lode, Distension, STRESS_I1, STRESS_I2, STRESS_I3, STRESS_e_val1, STRESS_e_vec1x, STRESS_e_vec1y, STRESS_e_vec1z, STRESS_e_val2, STRESS_e_vec2x, STRESS_e_vec2y, STRESS_e_vec2z, STRESS_e_val3, STRESS_e_vec3x, STRESS_e_vec3y, STRESS_e_vec3z, pre, temp, dist)
 
-np.savetxt('{}/{}/output.txt'.format(namemodel, dirname), np.array(DATA), delimiter=' ', header="TIME x y tl_x tl_y tr_x tr_y br_x br_y bl_x bl_y rot rot_cum gam_xy gam_xy_cum e_I1 e_I2 e_I3 e_R_I1 e_R_I2 e_R_I3 e_e_val1 e_e_vec1x e_e_vec1y e_e_vec1z e_e_val2 e_e_vec2x e_e_vec2y e_e_vec2z e_e_val3 e_e_vec3x e_e_vec3y e_e_vec3z Wk Wk_strain n_oct_unit_shear lode Distension S_I1 S_I2 S_I3 S_e_val1 S_e_vec1x S_e_vec1y S_e_vec1z S_e_val2 S_e_vec2x S_e_vec2y S_e_vec2z S_e_val3 S_e_vec3x S_e_vec3y S_e_vec3z P T Alpha")
+np.savetxt('{}/{}/output.txt'.format(namemodel, dirname), np.array(DATA), delimiter=' ', header="TIME x y tl_x tl_y tr_x tr_y br_x br_y bl_x bl_y rot rot_cum gam_xy gam_xy_cum e_I1 e_I2 e_I3 e_J2 e_R_I1 e_R_I2 e_R_I3 e_e_val1 e_e_vec1x e_e_vec1y e_e_vec1z e_e_val2 e_e_vec2x e_e_vec2y e_e_vec2z e_e_val3 e_e_vec3x e_e_vec3y e_e_vec3z Wk Wk_strain n_oct_unit_shear lode Distension S_I1 S_I2 S_I3 S_e_val1 S_e_vec1x S_e_vec1y S_e_vec1z S_e_val2 S_e_vec2x S_e_vec2y S_e_vec2z S_e_val3 S_e_vec3x S_e_vec3y S_e_vec3z P T Alpha")
 
 print "SCRIPT IS COMPLETE - STRESS AND STRAIN DATA ARE NOW OUTPUT TO A .txt FILE, LOCATED IN THE USER-SPECIFIED OUTPUT DIRECTORY"
 
