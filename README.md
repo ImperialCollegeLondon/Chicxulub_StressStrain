@@ -5,7 +5,11 @@ There are 2 folders within this directory: iSALE_inputs, and StressStrain_Calcul
 
 iSALE_inputs:
 This folder provides all of the iSALE input files required to produce the models discussed in the contribution.
-  - 'Rae_18_prime' is the model used for all of the analysis presented within the contribution. The contribution used three runs of the model, the only difference between the runs being that the time between saved steps was decreased to produce greater temporal resolution when it was required (such as for producing results for the deformation during shock). The two .inp files within the directory 'Chicxulub_StressStrain/iSALE_inputs/Rae_18_prime' possess the lowest temporal resolution, with 2 s between timesteps, finishing at 600 s. The two additional folders within 'Chicxulub_StressStrain/iSALE_inputs/Rae_18_prime'; '1s_res' and '10us_res', respectively contain the input files for a run with a temporal resolution of 1 s between timesteps, finishing at 300 s; and a run with a temporal resolution of 10 micro-s between timesteps, finishing at 6 s.
+  - 'Rae_18_prime' is the model used for all of the analysis presented within the contribution. The contribution used two runs of the same model, the only difference between the runs being that the time between saved steps was decreased to produce greater temporal resolution when it was required (such as for producing results for the deformation during shock). The two sets of .inp files within the directory 'Chicxulub_StressStrain/iSALE_inputs/Rae_18_prime' are:
+    
+1) The low temporal resolution run, with 2 s between timesteps, finishing at 600 s.
+2) The high temporal resolution run, with 25 us between timesteps, finishing at 6 s.
+
   - 'Rae_18_alternative' provides an alternative model to the one presented in the Supplementary Material of the contribution, where the impactor diameter is 14 km, rather than 12 km. All other parameters remain the same.
   
 StressStrain_Calculator:
