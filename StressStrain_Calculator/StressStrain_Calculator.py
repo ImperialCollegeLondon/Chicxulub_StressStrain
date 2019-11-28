@@ -592,6 +592,14 @@ for i in np.arange(1,model.nsteps,1):
     # ROT is the anti-symmetric part of the displacement gradient tensor, The Rotation Tensor
     EPS = (D_grad + D_grad.T)/2
     ROT = (D_grad - D_grad.T)/2
+    
+    HydrostaticStrain = np.trace(EPS)/3
+
+    row1 = np.array([EPS[0,0] - HydrostaticStrain, EPS[0,1], 0])
+    row2 = np.array([EPS[1,0], EPS[1,1] - HydrostaticStrain, 0])
+    row3 = np.array([0, 0, EPS[2,2] - HydrostaticStrain])
+
+    DEVstrain_Tensor = np.matrix( [row1 , row2 , row3] )
 
     # RoDT is the symmetric part of the velocity gradient tensor, The Rate of Deformation Tensor
     # ST is the anti-symmetric part of the velocity gradient tensor, The Spin Tensor
