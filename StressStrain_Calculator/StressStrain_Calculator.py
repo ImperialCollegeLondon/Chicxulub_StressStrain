@@ -374,27 +374,27 @@ for i in np.arange(0, model.nsteps,1):
 
         # Determine Principal Stresses and Stress Directions
         STRESS_e_val, STRESS_e_vec = np.linalg.eig(D_S_TENS)
-    
+
+        STR_e_vals = STRESS_e_val * -1
+
         sort = np.argsort(STRESS_e_val)
-        STRESS_e_vec = STRESS_e_vec[sort]
-        STRESS_e_val = STRESS_e_val[sort]
+
+        STRESS_e_val1.append(STR_e_vals[sort[0]])
+        STRESS_e_val2.append(STR_e_vals[sort[1]])
+        STRESS_e_val3.append(STR_e_vals[sort[2]])
+
+        STRESS_e_vec1x.append(STRESS_e_vec[:,sort[0]][0])
+        STRESS_e_vec1y.append(STRESS_e_vec[:,sort[0]][1])
+        STRESS_e_vec1z.append(STRESS_e_vec[:,sort[0]][2])
     
-        STRESS_e_val1.append(-STRESS_e_val[0])
-        STRESS_e_val2.append(-STRESS_e_val[1])
-        STRESS_e_val3.append(-STRESS_e_val[2])
+        STRESS_e_vec2x.append(STRESS_e_vec[:,sort[1]][0])
+        STRESS_e_vec2y.append(STRESS_e_vec[:,sort[1]][1])
+        STRESS_e_vec2z.append(STRESS_e_vec[:,sort[1]][2])
     
-        STRESS_e_vec1x.append(STRESS_e_vec[0, 0])
-        STRESS_e_vec1y.append(STRESS_e_vec[0, 1])
-        STRESS_e_vec1z.append(STRESS_e_vec[0, 2])
-    
-        STRESS_e_vec2x.append(STRESS_e_vec[1, 0])
-        STRESS_e_vec2y.append(STRESS_e_vec[1, 1])
-        STRESS_e_vec2z.append(STRESS_e_vec[1, 2])
-    
-        STRESS_e_vec3x.append(STRESS_e_vec[2, 0])
-        STRESS_e_vec3y.append(STRESS_e_vec[2, 1])
-        STRESS_e_vec3z.append(STRESS_e_vec[2, 2])
-    
+        STRESS_e_vec3x.append(STRESS_e_vec[:,sort[2]][0])
+        STRESS_e_vec3y.append(STRESS_e_vec[:,sort[2]][1])
+        STRESS_e_vec3z.append(STRESS_e_vec[:,sort[2]][2])
+        
     # Obtain Strain Information
     # Determine coordinates of tracers
     tl_x = step.xmark[tl]
@@ -694,28 +694,27 @@ for i in np.arange(1,model.nsteps,1):
     e_val, e_vec = np.linalg.eig(EPS)
 
     sort = np.argsort(-e_val)
-    e_vec = e_vec[sort]
-    e_val = e_val[sort]
+
+    e_val1.append(e_val[sort[0]])
+    e_val2.append(e_val[sort[1]])
+    e_val3.append(e_val[sort[2]])
+
+
+    e_vec1x.append(e_vec[:,sort[0]][0])
+    e_vec1y.append(e_vec[:,sort[0]][1])
+    e_vec1z.append(e_vec[:,sort[0]][2])
     
-    e_val1.append(e_val[0])
-    e_val2.append(e_val[1])
-    e_val3.append(e_val[2])
+    e_vec2x.append(e_vec[:,sort[1]][0])
+    e_vec2y.append(e_vec[:,sort[1]][1])
+    e_vec2z.append(e_vec[:,sort[1]][2])
     
-    e_vec1x.append(e_vec[0, 0])
-    e_vec1y.append(e_vec[0, 1])
-    e_vec1z.append(e_vec[0, 2])
+    e_vec3x.append(e_vec[:,sort[2]][0])
+    e_vec3y.append(e_vec[:,sort[2]][1])
+    e_vec3z.append(e_vec[:,sort[2]][2])
     
-    e_vec2x.append(e_vec[1, 0])
-    e_vec2y.append(e_vec[1, 1])
-    e_vec2z.append(e_vec[1, 2])
-    
-    e_vec3x.append(e_vec[2, 0])
-    e_vec3y.append(e_vec[2, 1])
-    e_vec3z.append(e_vec[2, 2])
-    
-    e1 = 1 + e_val[0]
-    e2 = 1 + e_val[1]
-    e3 = 1 + e_val[2]
+    e1 = 1 + e_val[sort[0]]
+    e2 = 1 + e_val[sort[1]]
+    e3 = 1 + e_val[sort[2]]
 
     ne1 = np.log(e1)
     ne2 = np.log(e2)
